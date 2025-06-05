@@ -1,0 +1,137 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - مرحبا
+    - السلام عليكم
+    - أهلا
+    - صباح الخير
+    - مساء الخير
+
+- intent: goodbye
+  examples: |
+    - وداعا
+    - إلى اللقاء
+    - شكرا لك
+    - مع السلامة
+
+- intent: book_flight
+  examples: |
+    - أريد حجز طيران
+    - أريد السفر من [الدار البيضاء](ville_depart) إلى [باريس](ville_destination)
+    - أحتاج تذكرة طيران من [الرباط](ville_depart) إلى [لندن](ville_destination) يوم [15 يونيو](date_depart)
+    - أريد حجز رحلة [ذهاب وإياب](type_vol) من [مراكش](ville_depart) إلى [مدريد](ville_destination)
+    - أريد السفر [درجة أولى](classe) من [أكادير](ville_depart) إلى [روما](ville_destination)
+
+- intent: book_hotel
+  examples: |
+    - أريد حجز فندق
+    - أحتاج إقامة في [الدار البيضاء](ville_hotel)
+    - أريد فندق [5 نجوم](categorie_hotel) في [الرباط](ville_hotel)
+    - أبحث عن فندق في [حي الحبوس](quartier) في [الدار البيضاء](ville_hotel)
+    - أريد إقامة ل[شخصين](nombre_personnes) في [مراكش](ville_hotel)
+
+- intent: choose_hotel_option
+  examples: |
+    - أختار الخيار [1](selected_option)
+    - الخيار [2](selected_option)
+    - [3](selected_option)
+    - أريد الفندق الأول
+    - رقم [4](selected_option)
+    - الخيار [5](selected_option)
+
+- intent: select_option
+  examples: |
+    - الخيار الأول
+    - أختار الثاني
+    - هذا الخيار يناسبني
+    - موافق على هذا الاختيار
+    - 1
+    - 2
+    - 3
+
+- intent: change_option
+  examples: |
+    - أريد تغيير الخيار
+    - لا يناسبني هذا
+    - هل يمكن تغيير التاريخ
+    - أريد خيارات أخرى
+    - أريد تغيير اختياري
+    - أريد تعديل الحجز
+    - أريد تغيير الفندق
+    - أود اختيار فندق آخر
+    - أريد تغيير تفاصيل الرحلة
+    - غير الحجز من فضلك
+
+- intent: bot_challenge
+  examples: |
+    - هل أنت بوت؟
+    - هل أنت روبوت؟
+    - أنت مساعد ذكي؟
+    - من أنت؟
+
+- intent: confirm_reservation
+  examples: |
+    - أؤكد الحجز
+    - نعم، أريد الحجز
+    - موافق على الحجز
+    - تأكيد الطلب
+    - موافق على الحجز
+    - تأكيد الطلب
+    - أريد تأكيد الحجز
+
+
+- intent: affirm
+  examples: |
+    - نعم
+    - بالتأكيد
+    - أجل
+    - صحيح
+    - تمام
+    - أؤكد الحجز
+    - نعم، أريد الحجز
+    - موافق على الحجز
+    - تأكيد الطلب
+    - أكيد
+    - أجل
+    - بالطبع
+    - أريد تأكيد الحجز
+
+- intent: deny
+  examples: |
+    - لا
+    - ليس بعد
+    - غير موافق
+    - لا أظن ذلك
+    - لا أريد
+    
+
+- intent: inform
+  examples: |
+    - أريد السفر من الدار البيضاء إلى باريس
+    - درجة اقتصادية
+    - 15 يونيو
+    - ذهاب وإياب 
+    - في [مراكش](ville_hotel)
+    - [3 أشخاص](nombre_personnes)
+    - فندق [4 نجوم](categorie_hotel)
+    - من [15 يونيو](date_checkin) إلى [20 يونيو](date_checkout)
+
+- intent: mood_great
+  examples: |
+    - أنا سعيد
+    - كل شيء جيد
+    - رائع
+    - ممتاز
+    - أشعر بأنني بخير
+
+- intent: mood_unhappy
+  examples: |
+    - لست بخير
+    - أشعر بالحزن
+    - يومي كان سيئا
+    - أنا متضايق
+    - أشعر بالإحباط
+    - يوم سيء
+    - أنا حزين
