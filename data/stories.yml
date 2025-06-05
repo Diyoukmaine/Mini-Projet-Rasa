@@ -1,0 +1,116 @@
+version: "3.1"
+
+stories:
+
+- story: book flight with form
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_flight
+  - slot_was_set:
+    - booking_type: flight
+  - action: flight_booking_form
+  - active_loop: flight_booking_form
+  - slot_was_set:
+    - requested_slot: ville_depart
+  - slot_was_set:
+    - ville_depart: الدار البيضاء
+  - slot_was_set:
+    - requested_slot: ville_destination  
+  - slot_was_set:
+    - ville_destination: باريس
+  - slot_was_set:
+    - requested_slot: type_vol
+  - slot_was_set:
+    - type_vol: ذهاب وإياب
+  - slot_was_set:
+    - requested_slot: date_depart
+  - slot_was_set:
+    - date_depart: 15 يونيو
+  - slot_was_set:
+    - requested_slot: date_retour
+  - slot_was_set:
+    - date_retour: 25 يونيو
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_search_flights
+  - intent: select_option
+  - slot_was_set:
+    - booking_type: flight
+  - action: action_handle_flight_selection
+  - intent: confirm_reservation
+  - action: action_confirm_reservation
+
+- story: change options inside flight booking form
+  steps:
+  - intent: book_flight
+  - action: flight_booking_form
+  - active_loop: flight_booking_form
+  - intent: change_option
+  - action: action_change_options
+  - action: flight_booking_form
+  - active_loop: flight_booking_form
+
+- story: L'utilisateur sélectionne un vol puis confirme
+  steps:
+  - intent: select_option
+  - slot_was_set:
+    - booking_type: flight
+  - action: action_handle_flight_selection
+  - intent: affirm
+  - action: action_confirm_reservation
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: book hotel with form
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_hotel
+  - slot_was_set:
+    - booking_type: hotel
+  - action: hotel_booking_form
+  - active_loop: hotel_booking_form
+  - slot_was_set:
+    - requested_slot: ville_hotel
+  - slot_was_set:
+    - ville_hotel: مراكش
+  - slot_was_set:
+    - requested_slot: categorie_hotel
+  - slot_was_set:
+    - categorie_hotel: 5 نجوم
+  - slot_was_set:
+    - requested_slot: quartier
+  - slot_was_set:
+    - quartier: كيليز
+  - slot_was_set:
+    - requested_slot: nombre_personnes
+  - slot_was_set:
+    - nombre_personnes: شخصين
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_search_hotels
+  - intent: choose_hotel_option
+  - slot_was_set:
+    - booking_type: hotel
+  - action : action_handle_hotel_selection
+  - intent: confirm_reservation
+  - action: action_confirm_reservation_hotel
+
+- story: L'utilisateur sélectionne un hotel puis confirme
+  steps:
+  - slot_was_set:
+    - booking_type: hotel
+  - intent: choose_hotel_option
+  - action: action_handle_hotel_selection
+  - intent: affirm
+  - action: action_confirm_reservation_hotel
+
+
+
+
