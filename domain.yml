@@ -1,0 +1,290 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - book_flight
+  - select_option
+  - change_option
+  - confirm_reservation
+  - inform  
+  - choose_flight_option
+  - book_hotel
+  - choose_hotel_option
+
+entities:
+  - ville_depart
+  - ville_destination
+  - date_depart
+  - date_retour
+  - classe
+  - type_vol
+  - email
+  - categorie_hotel
+  - ville_hotel
+  - quartier
+  - nombre_personnes
+
+slots:
+  ville_depart:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ville_depart
+    - type: from_text
+      conditions:
+      - active_loop: flight_booking_form
+        requested_slot: ville_depart
+        
+  ville_destination:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ville_destination
+    - type: from_text
+      conditions:
+      - active_loop: flight_booking_form
+        requested_slot: ville_destination
+        
+  date_depart:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date_depart
+    - type: from_text
+      conditions:
+      - active_loop: flight_booking_form
+        requested_slot: date_depart
+        
+  date_retour:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date_retour
+    - type: from_text
+      conditions:
+      - active_loop: flight_booking_form
+        requested_slot: date_retour
+        
+  classe:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: classe
+    - type: from_text
+      conditions:
+      - active_loop: flight_booking_form
+        requested_slot: classe
+        
+  type_vol:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: type_vol
+    - type: from_text
+      conditions:
+      - active_loop: flight_booking_form
+        requested_slot: type_vol
+
+  email:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: flight_booking_form
+            requested_slot: email
+
+  ville_hotel:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ville_hotel
+    - type: from_text
+      conditions:
+      - active_loop: hotel_booking_form
+        requested_slot: ville_hotel
+      
+  categorie_hotel:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: categorie_hotel
+    - type: from_text
+      conditions:
+      - active_loop: hotel_booking_form
+        requested_slot: categorie_hotel
+      
+  quartier:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: quartier
+    - type: from_text
+      conditions:
+      - active_loop: hotel_booking_form
+        requested_slot: quartier
+      
+  nombre_personnes:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre_personnes
+    - type: from_text
+      conditions:
+      - active_loop: hotel_booking_form
+        requested_slot: nombre_personnes
+  
+  booking_type:
+    type: categorical
+    values:
+      - flight
+      - hotel
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: booking_type
+  
+  selected_option:
+    type: text
+    influence_conversation: true
+    mappings :
+    - type: from_entity
+      entity: selected_option
+
+  selected_flight:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  flight_summary:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  available_flights:
+    type: any
+    mappings:
+      - type: custom
+
+  available_hotels:
+    type: any
+    mappings:
+      - type: custom
+
+  selected_hotel:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  hotel_summary:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+
+
+
+forms:
+  flight_booking_form:
+    required_slots:
+      - email
+      - ville_depart
+      - ville_destination  
+      - type_vol
+      - date_depart
+      - date_retour
+      - classe
+ 
+  hotel_booking_form:
+    required_slots:
+      - ville_hotel
+      - quartier
+      - categorie_hotel
+      - nombre_personnes
+
+responses:
+  utter_greet:
+  - text: "مرحبا! كيف يمكنني مساعدتك اليوم؟"
+  
+  utter_goodbye:
+  - text: "وداعا! أتمنى لك رحلة سعيدة!"
+  
+  utter_ask_flight_details:
+  - text: "من أين تريد السفر وإلى أين؟"
+
+  utter_iamabot:
+  - text: "أنا مساعد ذكي لوكالة السفر. كيف يمكنني مساعدتك في حجز رحلتك؟"
+  
+  utter_ask_confirmation:
+  - text: "هل تريد تأكيد هذا الحجز؟"
+
+  
+  utter_ask_email:
+  - text: "من فضلك، ما هو بريدك الإلكتروني لتأكيد الحجز؟"
+
+  utter_ask_ville_depart:
+  - text: "من أي مدينة تريد الانطلاق؟"
+  
+  utter_ask_ville_destination:
+  - text: "ما هي مدينة الوجهة؟"
+  
+  utter_ask_type_vol:
+  - text: "ما نوع الرحلة؟ (ذهاب فقط أو ذهاب وإياب)"
+  
+  utter_ask_date_depart:
+  - text: "ما هو تاريخ الانطلاق؟ (مثال: 15 يونيو 2025)"
+  
+  utter_ask_date_retour:
+  - text: "ما هو تاريخ العودة؟ (مثال: 20 يونيو 2025)"
+  
+  utter_ask_classe:
+  - text: "أي درجة تفضل؟ (اقتصادية، درجة الأعمال، الدرجة الأولى)"
+ 
+  utter_ask_hotel_details:
+  - text: "في أي مدينة تريد الإقامة؟"
+
+
+  utter_ask_ville_hotel:
+    - text: "في أي مدينة تريد حجز الفندق؟"
+
+  utter_ask_categorie_hotel:
+    - text: "كم عدد نجوم الفندق الذي تبحث عنه؟"
+
+  utter_ask_quartier:
+    - text: "هل ترغب بالحجز في حي معين؟"
+
+  utter_ask_nombre_personnes:
+    - text: "كم عدد الأشخاص؟"
+
+  utter_ask_booking_type:
+  - text: "من فضلك، اختر نوع الحجز الذي تريده: هل هو حجز ✈️ رحلة طيران أم 🏨 فندق؟"
+
+
+
+actions:
+  - action_search_flights
+  - action_confirm_reservation
+  - validate_flight_booking_form
+  - action_handle_flight_selection
+  - action_ask_confirm_reservation
+  - action_search_hotels
+  - validate_hotel_booking_form
+  - action_ask_confirm_reservation_hotel
+  - action_confirm_reservation_hotel
+  - action_handle_hotel_selection
+  - action_handle_reservation_confirmation
+  - action_handle_change_flight_reservation
+  - action_handle_change_hotel_reservation
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
