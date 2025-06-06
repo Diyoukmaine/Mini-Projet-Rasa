@@ -1,0 +1,54 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"flight_booking_form\"}}]": "action_search_flights",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"flight_booking_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_search_flights\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]": "action_search_flights",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_search_flights\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"book_flight\"}}]": "flight_booking_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"book_flight\"}}, {\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"flight_booking_form\"}, \"user\": {\"intent\": \"book_flight\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"confirm_reservation\"}}]": "action_confirm_reservation_hotel",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"confirm_reservation\"}}, {\"prev_action\": {\"action_name\": \"action_confirm_reservation_hotel\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"confirm_reservation\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]": "action_search_hotels",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_search_hotels\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_booking_type\"}, \"slots\": {\"booking_type\": \"should_not_be_set\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"confirm_reservation\"}}]": "action_confirm_reservation",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"confirm_reservation\"}}, {\"prev_action\": {\"action_name\": \"action_confirm_reservation\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"confirm_reservation\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"hotel_booking_form\"}}]": "action_search_hotels",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"hotel_booking_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_search_hotels\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"change_option\"}}]": "action_change_options",
+      "[{\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"change_option\"}}, {\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"action_change_options\"}, \"user\": {\"intent\": \"change_option\"}}]": "flight_booking_form",
+      "[{\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"change_option\"}}, {\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"action_change_options\"}, \"user\": {\"intent\": \"change_option\"}}, {\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"flight_booking_form\"}, \"user\": {\"intent\": \"change_option\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"book_hotel\"}}]": "hotel_booking_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"book_hotel\"}}, {\"active_loop\": {\"name\": \"hotel_booking_form\"}, \"prev_action\": {\"action_name\": \"hotel_booking_form\"}, \"user\": {\"intent\": \"book_hotel\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "hotel_booking_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"flight_booking_form\"}, \"user\": {\"intent\": \"book_flight\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_change_options\"}}, {\"active_loop\": {\"name\": \"flight_booking_form\"}, \"prev_action\": {\"action_name\": \"flight_booking_form\"}, \"user\": {\"intent\": \"change_option\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"hotel_booking_form\"}, \"prev_action\": {\"action_name\": \"hotel_booking_form\"}, \"user\": {\"intent\": \"book_hotel\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_search_hotels\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_booking_type\"}, \"slots\": {\"booking_type\": \"should_not_be_set\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [0.0, 1.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]",
+      "handling active loops and forms - hotel_booking_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_search_flights\"}, \"slots\": {\"booking_type\": [1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"deny\"}}]",
+      "handling active loops and forms - flight_booking_form",
+      "handling active loops and forms - hotel_booking_form - action_listen",
+      "predicting default action with intent session_start",
+      "predicting default action with intent restart"
+    ]
+  }
+}
