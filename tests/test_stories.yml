@@ -1,0 +1,168 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+# - story: test réserver un vol complet
+#   steps:
+#   - user: |
+#       مرحبا
+#     intent: greet
+#   - action: utter_greet
+
+#   - user: |
+#       أريد حجز رحلة طيران
+#     intent: book_flight
+#   - slot_was_set:
+#     - booking_type: flight
+#   - action: flight_booking_form
+#   - active_loop: flight_booking_form
+
+#   - user: |
+#       من الدار البيضاء
+#     intent: inform
+#   - slot_was_set:
+#     - ville_depart: الدار البيضاء
+#   - action: flight_booking_form
+
+#   - user: |
+#       إلى باريس
+#     intent: inform
+#   - slot_was_set:
+#     - ville_destination: باريس
+#   - action: flight_booking_form
+
+#   - user: |
+#       ذهاب وإياب
+#     intent: inform
+#   - slot_was_set:
+#     - type_vol: ذهاب وإياب
+#   - action: flight_booking_form
+
+#   - user: |
+#       15 يونيو 2025
+#     intent: inform
+#   - slot_was_set:
+#     - date_depart: 15 يونيو 2025
+#   - action: flight_booking_form
+
+#   - user: |
+#       25 يونيو 2025
+#     intent: inform
+#   - slot_was_set:
+#     - date_retour: 25 يونيو 2025
+#   - action: flight_booking_form
+
+#   - user: |
+#       اقتصادية
+#     intent: inform
+#   - slot_was_set:
+#     - classe: اقتصادية
+#   - action: flight_booking_form
+
+#   - user: |
+#       h.errami2225@uca.ac.ma
+#     intent: inform
+#   - slot_was_set:
+#     - email: h.errami2225@uca.ac.ma
+#   - action: flight_booking_form
+#   - active_loop: null
+
+#   - action: action_search_flights
+
+#   - user: |
+#       1
+#     intent: select_option
+#   - action: action_handle_flight_selection
+
+#   - user: |
+#       نعم
+#     intent: confirm_reservation
+#   - action: action_confirm_reservation
+
+- story: happy path 1
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      amazing
+    intent: mood_great
+  - action: utter_happy
+
+- story: happy path 2
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      amazing
+    intent: mood_great
+  - action: utter_happy
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: sad path 1
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      not good
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      not good
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      not really
+    intent: deny
+  - action: utter_goodbye
+
+- story: sad path 3
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      very terrible
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      no
+    intent: deny
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      are you a bot?
+    intent: bot_challenge
+  - action: utter_iamabot
