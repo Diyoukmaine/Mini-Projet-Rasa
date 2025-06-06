@@ -24,19 +24,19 @@ Ce projet est un chatbot intelligent développé avec [Rasa](https://rasa.com/),
 git clone https://github.com/Diyoukmaine/Mini-Projet-Rasa.git
 cd Mini-Projet-Rasa
 ```
-2.Créer un environnement virtuel (optionnel mais recommandé) :
+2.**Créer un environnement virtuel (optionnel mais recommandé) **:
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # Sur Windows : venv\Scripts\activate
 ```
-3.Installer les dépendances : 
+3. **Installer les dépendances** : 
 
 ```bash
 pip install rasa
 pip install requests
 ```
-Utilisation :
+4. **Utilisation** :
 A. Entraîner le modèle :
 ```bash
 rasa train
