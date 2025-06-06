@@ -1,0 +1,14 @@
+{
+  "0": "affirm",
+  "1": "book_flight",
+  "2": "bot_challenge",
+  "3": "change_option",
+  "4": "confirm_reservation",
+  "5": "deny",
+  "6": "goodbye",
+  "7": "greet",
+  "8": "inform",
+  "9": "mood_great",
+  "10": "mood_unhappy",
+  "11": "select_option"
+}
