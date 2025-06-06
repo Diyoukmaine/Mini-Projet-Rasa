@@ -36,16 +36,16 @@ source venv/bin/activate  # Sur Windows : venv\Scripts\activate
 pip install rasa
 pip install requests
 ```
-4. **Utilisation** \n:
-  A. Entraîner le modèle :
+## Utilisation :
+A. **Entraîner le modèle **:
   ```bash
   rasa train
   ```
-  B. Lancer le chatbot :
+  B. **Lancer le chatbot** :
   ```bash
   rasa run --enable-api --cors "*" --debug
   ```
-  C. Lancer le serveur d’actions personnalisées :
+  C. **Lancer le serveur d’actions personnalisées** :
   ```bash
   rasa run actions
   
