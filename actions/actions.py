@@ -143,29 +143,6 @@ class ActionSearchHotels(Action):
         
         ville_hotel = tracker.get_slot("ville_hotel")
 
-        # hotels = [
-        #     {
-        #         "nom": "فندق الأطلس الكبير",
-        #         "categorie_hotel": "5",
-        #         "prix": "800 درهم/ليلة",
-        #         "quartier": "وسط المدينة",
-        #         "amenities": "مسبح، سبا، واي فاي مجاني"
-        #     },
-        #     {
-        #         "nom": "فندق المحيط الأزرق",
-        #         "categorie_hotel": "4", 
-        #         "prix": "600 درهم/ليلة",
-        #         "quartier": "قرب الشاطئ",
-        #         "amenities": "إطلالة على البحر، مطعم، موقف سيارات"
-        #     },
-        #     {
-        #         "nom": "فندق الرياض التقليدي",
-        #         "categorie_hotel": "3",
-        #         "prix": "400 درهم/ليلة", 
-        #         "quartier": "المدينة القديمة",
-        #         "amenities": "تصميم تقليدي، فطار مجاني، تكييف"
-        #     }
-        # ]
         
         hotels = [
             {
@@ -220,7 +197,6 @@ class ActionSearchHotels(Action):
         return [
             SlotSet("booking_type", "hotel"),
             SlotSet("available_hotels", json.dumps(hotels))
-            #SlotSet("available_hotels", json.dumps(hotels))  # 🔒 store hotels as JSON
         ]
 
 class ActionAskConfirmReservationHotel(Action):
@@ -482,17 +458,8 @@ class ActionConfirmReservationFlight(Action):
         ville_destination = tracker.get_slot("ville_destination")
         date_depart = tracker.get_slot("date_depart")
 
-        # confirmation_message = (
-        #     f"✅ تم تأكيد حجزك!\n"
-        #     f"✈️ من {ville_depart} إلى {ville_destination}\n"
-        #     f"📅 في {date_depart}\n\n"
-        #     "🙏 شكراً لثقتك بنا!"
-        # )
-        #dispatcher.utter_message(text=confirmation_message)
         flight_summary = tracker.get_slot("flight_summary")
-        #if flight_summary:
-        #    dispatcher.utter_message(text=f"✅ تم تأكيد حجزك بنجاح!\n\n{flight_summary}\n\n📧 ستصلك رسالة تأكيد عبر البريد الإلكتروني.\n🎉 رحلة موفقة!")
-
+                
         # إرسال بريد إلكتروني
         if email:
             try:
@@ -508,7 +475,7 @@ class ActionConfirmReservationFlight(Action):
                 msg["To"] = email
 
                 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-                    server.login("diyoukmaine@gmail.com", "zosx tgyq knzb hhoj")
+                    server.login("diyoukmaine@gmail.com", "***MOT_DE_PASSE_APP***")
                     server.send_message(msg)
 
                 dispatcher.utter_message(text="📧 تم إرسال رسالة التأكيد إلى بريدك الإلكتروني. 🎉 رحلة موفقة!")
@@ -553,35 +520,8 @@ class ActionHandleFlightSelection(Action):
         else:
             flights = flights_data
 
-         #flights = json.loads(flights_data)
-
-        # flights = [
-        #     {
-        #         "airline": "الخطوط الملكية المغربية",
-        #         "price": "2500 درهم",
-        #         "departure_time": "14:30",
-        #         "arrival_time": "18:45",
-        #         "duration": "4س 15د"
-        #     },
-        #     {
-        #         "airline": "الخطوط الجوية الفرنسية",
-        #         "price": "2800 درهم",
-        #         "departure_time": "10:15",
-        #         "arrival_time": "14:30",
-        #         "duration": "4س 15د"
-        #     },
-        #     {
-        #         "airline": "طيران الإمارات",
-        #         "price": "3200 درهم",
-        #         "departure_time": "22:00",
-        #         "arrival_time": "08:30+1",
-        #         "duration": "8س 30د"
-        #     }
-        # ]
-
         if 0 <= selected_index < len(flights):
             flight = flights[selected_index]
-            #confirmation = f"🛫 لقد اخترت:\n✈️ {flight['airline']} - {flight['price']}\n🕓 {flight['departure_time']} ➡️ {flight['arrival_time']}\n⏱️ المدة: {flight['duration']}\n\nهل ترغب في تأكيد الحجز؟"
             confirmation = (
                 f"🛫 لقد اخترت:\n"
                 f"✈️ شركة الطيران: {flight.get('gate', 'غير معروف')} - السعر: {flight.get('price', 'غير متوفر')} درهم\n"
@@ -591,7 +531,6 @@ class ActionHandleFlightSelection(Action):
                 "هل ترغب في تأكيد الحجز؟"
             )
 
-            #dispatcher.utter_message(text=confirmation)
             dispatcher.utter_message(text=f"Debug: saved flight summary:\n{confirmation}")
             print("DEBUG: saved flight_summary slot:", confirmation)
 
@@ -648,28 +587,7 @@ class ActionSearchFlights(Action):
             dispatcher.utter_message(text="❌ لا يمكننا تحديد رمز المدينة. تأكد من إدخال مدن معروفة.")
             return []
 
-        # try:
-        #     flights = self.search_flights_api(origin, destination, date_depart, date_retour, type_vol, classe)
-
-        #     if flights:
-        #         message = f"🛫 إليك بعض الرحلات من {ville_depart} إلى {ville_destination} بتاريخ {date_depart}:\n\n"
-        #         for i, flight in enumerate(flights[:5], 1):
-        #             message += f"{i}. 💺 السعر: {flight['price']}$\n\n"
-        #             message += f"   🧾 المزود: {flight['gate']}\n\n"
-        #             message += f"   ⌚ المدة: {flight['duration']} دقيقة\n\n"
-        #             message += f"   🔁 عدد التوقفات: {flight['stops']}\n\n"
-        #             message += f"   📅 العودة: {flight['return_date']}\n\n"
-        #             message += f"   🆔 الرمز: {flight['origin']} ➡ {flight['destination']}\n\n"
-
-        #         message += "✈ أي خيار تفضل؟"
-        #     else:
-        #         message = f"عذراً، لم يتم العثور على رحلات من {ville_depart} إلى {ville_destination} في التاريخ المحدد."
-
-        #     dispatcher.utter_message(text=message)
-        # except Exception as e:
-        #     print("⚠ Erreur:", e)
-        #     dispatcher.utter_message(text="⚠ حدث خطأ أثناء الاتصال بخدمة الرحلات.")
-        try:
+       try:
             flights = self.search_flights_api(origin, destination, date_depart, date_retour, type_vol, classe)
 
             if flights:
@@ -723,13 +641,7 @@ class ActionSearchFlights(Action):
                 f"&one_way={one_way}"
                 f"&currency=usd&token={token}"
             )
-            # url = (
-            #     f"https://api.travelpayouts.com/v2/prices/latest"
-            #     f"?origin={origin}&destination={destination}"
-            #     f"&depart_date={date_depart}"
-            #     f"&return_date={return_date or ''}"
-            #     f"&currency=usd&token={token}"
-            # )
+           
 
             response = requests.get(url)
             response.raise_for_status()
