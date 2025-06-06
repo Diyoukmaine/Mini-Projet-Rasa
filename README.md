@@ -24,7 +24,7 @@ Ce projet est un chatbot conversationnel développé avec [Rasa](https://rasa.co
 git clone https://github.com/Diyoukmaine/Mini-Projet-Rasa.git
 cd Mini-Projet-Rasa
 ```
-2.**Créer un environnement virtuel (optionnel mais recommandé) **:
+2. **Créer un environnement virtuel (optionnel mais recommandé) **:
 
 ```bash
 python -m venv venv
