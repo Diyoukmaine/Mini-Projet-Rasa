@@ -1,0 +1,85 @@
+{
+  "type": "IntentMaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "back": 1,
+        "book_flight": 2,
+        "bot_challenge": 3,
+        "change_option": 4,
+        "choose_flight_option": 5,
+        "confirm_reservation": 6,
+        "deny": 7,
+        "goodbye": 8,
+        "greet": 9,
+        "inform": 10,
+        "mood_great": 11,
+        "mood_unhappy": 12,
+        "nlu_fallback": 13,
+        "out_of_scope": 14,
+        "restart": 15,
+        "select_option": 16,
+        "session_start": 17
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_search_flights": 13,
+        "action_confirm_reservation": 14,
+        "action_change_options": 15,
+        "validate_flight_booking_form": 16,
+        "action_handle_flight_selection": 17,
+        "action_ask_confirm_reservation": 18,
+        "action_handle_flight_choice": 19,
+        "utter_ask_classe": 20,
+        "utter_ask_confirmation": 21,
+        "utter_ask_date_depart": 22,
+        "utter_ask_date_retour": 23,
+        "utter_ask_flight_details": 24,
+        "utter_ask_type_vol": 25,
+        "utter_ask_ville_depart": 26,
+        "utter_ask_ville_destination": 27,
+        "utter_goodbye": 28,
+        "utter_greet": 29,
+        "utter_iamabot": 30,
+        "flight_booking_form": 31
+      },
+      "entities": {
+        "classe": 0,
+        "date_depart": 1,
+        "date_retour": 2,
+        "type_vol": 3,
+        "ville_depart": 4,
+        "ville_destination": 5
+      },
+      "slots": {
+        "ville_depart_0": 0,
+        "ville_destination_0": 1,
+        "date_depart_0": 2,
+        "date_retour_0": 3,
+        "classe_0": 4,
+        "type_vol_0": 5,
+        "selected_option_0": 6
+      },
+      "active_loop": {
+        "flight_booking_form": 0
+      }
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}
