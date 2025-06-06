@@ -24,7 +24,7 @@ Ce projet est un chatbot conversationnel développé avec [Rasa](https://rasa.co
 git clone https://github.com/Diyoukmaine/Mini-Projet-Rasa.git
 cd Mini-Projet-Rasa
 ```
-2. **Créer un environnement virtuel (optionnel mais recommandé) **:
+2. **Créer un environnement virtuel (optionnel mais recommandé)**:
 
 ```bash
 python -m venv venv
@@ -37,15 +37,15 @@ pip install rasa
 pip install requests
 ```
 ## Utilisation :
-- Entraîner le modèle :
+1. **Entraîner le modèle** :
   ```bash
   rasa train
   ```
-- Lancer le chatbot:
+2. **Lancer le chatbot**:
   ```bash
   rasa run --enable-api --cors "*" --debug
   ```
-- Lancer le serveur d’actions personnalisées :
+3. **Lancer le serveur d’actions personnalisées**:
   ```bash
   rasa run actions
   
