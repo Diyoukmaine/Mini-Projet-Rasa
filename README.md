@@ -1,6 +1,6 @@
 # 🤖 Mini-Projet Rasa
 
-Ce projet est un chatbot intelligent développé avec [Rasa](https://rasa.com/), une plateforme open source de traitement du langage naturel (NLP) pour créer des assistants virtuels personnalisés.
+Ce projet est un chatbot conversationnel développé avec [Rasa](https://rasa.com/), une plateforme open source de traitement du langage naturel (NLP) pour créer des assistants virtuels personnalisés.
 
 ## 📌 Fonctionnalités
 
