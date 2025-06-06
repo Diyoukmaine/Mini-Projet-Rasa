@@ -1,0 +1,16 @@
+{
+  "0": "affirm",
+  "1": "book_flight",
+  "2": "book_hotel",
+  "3": "bot_challenge",
+  "4": "change_option",
+  "5": "choose_hotel_option",
+  "6": "confirm_reservation",
+  "7": "deny",
+  "8": "goodbye",
+  "9": "greet",
+  "10": "inform",
+  "11": "mood_great",
+  "12": "mood_unhappy",
+  "13": "select_option"
+}
