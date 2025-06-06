@@ -37,15 +37,15 @@ pip install rasa
 pip install requests
 ```
 ## Utilisation :
-A. **Entraîner le modèle **:
+- Entraîner le modèle :
   ```bash
   rasa train
   ```
-  B. **Lancer le chatbot** :
+- Lancer le chatbot:
   ```bash
   rasa run --enable-api --cors "*" --debug
   ```
-  C. **Lancer le serveur d’actions personnalisées** :
+- Lancer le serveur d’actions personnalisées :
   ```bash
   rasa run actions
   
